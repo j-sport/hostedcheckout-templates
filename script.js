@@ -54,14 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
     aliasTooltipCloseButton?.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            closeTooltip(aliasButton, aliasTooltipCloseButton);
+            closeTooltip(aliasButton, aliasTooltipContent);
         }
     });
 
     cobadgingTooltipCloseButton?.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            closeTooltip(cobadgingButton, cobadgingTooltipCloseButton);
+            closeTooltip(cobadgingButton, cobadgingTooltipContent);
         }
     });
 

@@ -140,7 +140,7 @@ label.pmchoice_label {
 }
 
 .button--raised[disabled] {
-    background-color: #D6D6D6;
+    background-color: #757575;
     cursor: inherit;
 }
 
@@ -533,6 +533,10 @@ label.pmchoice_label {
     margin: 24px 0
 }
 
+.paymentpart p.payment-error {
+    margin: 0
+}
+
 .bold {
     font-weight: 500
 }
@@ -576,7 +580,7 @@ label.pmchoice_label {
 
 label.accordion__label {
     position: relative;
-    display: block
+    display: flex;
 }
 
 label.accordion__label::after {
@@ -756,6 +760,16 @@ form select, #payment-cardexpirationyear, #payment-cardexpirationmonth {
     padding: 14px 16px;
 }
 
+#payment-cardexpirationmonth-label {
+    float: left;
+    width: 44%;
+}
+
+#payment-cardexpirationyear-label {
+    float: right;
+    width: 55%;
+}
+
 form input[readonly] {
     background-color: #f6f6f6;
     color: #807c7a
@@ -826,10 +840,14 @@ form .payment-field-container .input-icon::before {
     pointer-events: none;
 }
 
-#required-fields-disclaimer {
+#required-fields-disclaimer-container {
     font-size: 14px;
     color: #4e4745;
     margin-bottom: 12px;
+}
+
+#required-fields-disclaimer {
+    margin: 0;
 }
 
 form .payment-field-container#input_cardnumber .input-icon::before {
@@ -911,6 +929,10 @@ form .payment-field-container .error {
 }
 
 form .payment-field-container .error span {
+    color: #a81c14;
+}
+
+form .payment-field-container .error p {
     color: #a81c14;
 }
 
@@ -2278,8 +2300,8 @@ img[alt="amex"] + #payment-tooltip-cvc #payment-tooltip-cvc-amex-text {
     }
 
     .banner .banner__merchant-name img {
-      max-width: 150px;
-      height: auto;
+        max-width: 150px;
+        height: auto;
     }
 
     .banner .banner__merchant-logo {
@@ -2413,7 +2435,7 @@ img[alt="amex"] + #payment-tooltip-cvc #payment-tooltip-cvc-amex-text {
     }
 
     #order-summary-accordion-toggle-label:focus-visible {
-        outline: 2px solid #f19d76;
+        outline: 2px solid #005fcc;
         outline-offset: 2px;
         border-radius: 4px;
     }
@@ -2421,6 +2443,13 @@ img[alt="amex"] + #payment-tooltip-cvc #payment-tooltip-cvc-amex-text {
     #payment-status-header {
         padding: 24px;
         text-align: center;
+    }
+
+    .banner .banner__merchant-name {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
     }
 }
 
@@ -2468,9 +2497,9 @@ img[alt="amex"] + #payment-tooltip-cvc #payment-tooltip-cvc-amex-text {
     margin: -10px 0 15px 0;
 }
 
-    .surcharge-order-container.show {
-        display: block !important;
-    }
+.surcharge-order-container.show {
+    display: block !important;
+}
 
 tr.surcharge-row.show {
     display: table-row;
@@ -2480,9 +2509,9 @@ tr.surcharge-row.show {
     display: none;
 }
 
-    .dcc-row.show {
-        display: table-row;
-    }
+.dcc-row.show {
+    display: table-row;
+}
 
 .dcc-row td {
     font-size: 21px !important;
@@ -2525,10 +2554,10 @@ tr.surcharge-row.show {
     font-size: 21px !important;
 }
 
-    .dcc-payment-summary-cell > div {
-        margin: 8px 0 16px;
-        font-size: 0.75em;
-    }
+.dcc-payment-summary-cell > div {
+    margin: 8px 0 16px;
+    font-size: 0.75em;
+}
 
 .dcc-surcharge-loading {
     display: none;
@@ -2856,9 +2885,9 @@ tr.desktop {
     z-index: 1;
 }
 
-    #payment-blikcode.payment-input-valid ~ .payment-input-success::after {
-        display: none;
-    }
+#payment-blikcode.payment-input-valid ~ .payment-input-success::after {
+    display: none;
+}
 
 .blikcode {
     flex: 1 1 0;
@@ -2922,6 +2951,10 @@ tr.desktop {
     max-width: 100px;
 }
 
+.accordion.order-summary__content .row.order-total {
+    display: flex;
+}
+
 /* reponsive blik page */
 @media (max-width: 960px) {
 
@@ -2952,6 +2985,18 @@ tr.desktop {
         background-color: lightgrey;
         color: transparent;
     }
+
+    #total-amount-label-text {
+        margin: 0 1em 0 0;
+    }
+
+    #total-amount-number {
+        margin: 0 1em;
+    }
+
+    .accordion.order-summary__content .row.order-total {
+        display: none;
+    }
 }
 
 @media (max-width: 275px) {
@@ -2981,6 +3026,10 @@ tr.desktop {
     #payment-blikcode::selection {
         background-color: lightgrey;
         color: transparent;
+    }
+
+    .accordion.order-summary__content .row.order-total {
+        display: none;
     }
 }
 
@@ -3031,5 +3080,37 @@ tr.desktop {
 }
 
 .legend-visually-hidden {
-    display: none;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+}
+
+form.payment-paymentmethodform select.payment-select#payment-cardexpirationmonth {
+    float: left;
+    width: calc(50% - 4px);
+}
+
+form.payment-paymentmethodform input.payment-input#payment-cardexpirationmonth {
+    float: left;
+    width: calc(50% - 4px);
+}
+
+form.payment-paymentmethodform label.payment-label#payment-cardexpirationmonth-label {
+    float: left;
+}
+
+form.payment-paymentmethodform select.payment-select#payment-cardexpirationyear {
+    float: right;
+    width: calc(50% - 4px);
+}
+
+form.payment-paymentmethodform input.payment-input#payment-cardexpirationyear {
+    float: right;
+    width: calc(50% - 4px);
+}
+
+form.payment-paymentmethodform label.payment-label#payment-cardexpirationyear-label {
+    float: right;
+    width: calc(50% - 4px);
 }
