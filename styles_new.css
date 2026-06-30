@@ -319,11 +319,19 @@ label.pmchoice_label {
     height: 100%;
 }
 
-.main-content form.payment-paymentmethodform #integrated-cobadging-brandlist label {
+.main-content form.payment-paymentmethodform #integrated-cobadging-brandlist label.cawl-override {
     left: auto;
     right: 8px;
     float: right;
     margin: auto;
+}
+
+.main-content form.payment-paymentmethodform #integrated-cobadging-brandlist label:not(.cawl-override) {
+    left: auto;
+    right: 8px;
+    float: right;
+    margin: auto;
+    padding: 0px 3px;
 }
 
 .main-content form.payment-paymentmethodform #integrated-cobadging-brandlist img {
@@ -331,7 +339,13 @@ label.pmchoice_label {
     padding: 1px;
 }
 
-.main-content form.payment-paymentmethodform #integrated-cobadging-brandlist :not(label.brandlabel:hover, label.payment-cobadging-selected) img {
+.main-content form.payment-paymentmethodform #integrated-cobadging-brandlist :not(label.brandlabel:hover, label.payment-cobadging-selected) img:not(.cawl-override) {
+    margin: 2px 1px;
+    border: 1px solid #808080;
+    border-radius: 2px;
+}
+
+.main-content form.payment-paymentmethodform #integrated-cobadging-brandlist :not(label.brandlabel:hover, label.payment-cobadging-selected) img.cawl-override {
     margin: 2px;
     opacity: 0.4;
 }
@@ -344,6 +358,34 @@ label.pmchoice_label {
 .main-content form.payment-paymentmethodform #integrated-cobadging-brandlist label.payment-cobadging-selected img {
     border: 2px solid #008236;
     border-radius: 2px;
+}
+
+form #integrated-cobadging-brandlist .payment-cobadging-selected ~ .cobadging-span0::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    right: 50px;
+    width: 10px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid #008236;
+    background: url(./check-cobadging.png) no-repeat;
+    background-size: contain;
+    background-color: #fff;
+}
+
+form #integrated-cobadging-brandlist .cobadging-span0 ~ .payment-cobadging-selected ~ .cobadging-span1::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    right: -2px;
+    width: 10px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid #008236;
+    background: url(./check-cobadging.png) no-repeat;
+    background-size: contain;
+    background-color: #fff;
 }
 
 .main-content #payment-aliasmerchantusage-text {
@@ -533,9 +575,9 @@ label.pmchoice_label {
     margin: 24px 0
 }
 
-.paymentpart p.payment-error {
-    margin: 0
-}
+    .paymentpart p.payment-error {
+        margin: 0
+    }
 
 .bold {
     font-weight: 500
@@ -2300,8 +2342,8 @@ img[alt="amex"] + #payment-tooltip-cvc #payment-tooltip-cvc-amex-text {
     }
 
     .banner .banner__merchant-name img {
-        max-width: 150px;
-        height: auto;
+      max-width: 150px;
+      height: auto;
     }
 
     .banner .banner__merchant-logo {
@@ -2497,9 +2539,9 @@ img[alt="amex"] + #payment-tooltip-cvc #payment-tooltip-cvc-amex-text {
     margin: -10px 0 15px 0;
 }
 
-.surcharge-order-container.show {
-    display: block !important;
-}
+    .surcharge-order-container.show {
+        display: block !important;
+    }
 
 tr.surcharge-row.show {
     display: table-row;
@@ -2509,9 +2551,9 @@ tr.surcharge-row.show {
     display: none;
 }
 
-.dcc-row.show {
-    display: table-row;
-}
+    .dcc-row.show {
+        display: table-row;
+    }
 
 .dcc-row td {
     font-size: 21px !important;
@@ -2554,10 +2596,10 @@ tr.surcharge-row.show {
     font-size: 21px !important;
 }
 
-.dcc-payment-summary-cell > div {
-    margin: 8px 0 16px;
-    font-size: 0.75em;
-}
+    .dcc-payment-summary-cell > div {
+        margin: 8px 0 16px;
+        font-size: 0.75em;
+    }
 
 .dcc-surcharge-loading {
     display: none;
@@ -2885,9 +2927,9 @@ tr.desktop {
     z-index: 1;
 }
 
-#payment-blikcode.payment-input-valid ~ .payment-input-success::after {
-    display: none;
-}
+    #payment-blikcode.payment-input-valid ~ .payment-input-success::after {
+        display: none;
+    }
 
 .blikcode {
     flex: 1 1 0;
